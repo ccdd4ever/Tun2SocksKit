@@ -30,10 +30,10 @@ jobs:
           mkdir maccatalyst_arm64_x86_64/maccatalyst_x86_64
           cd temp
           make clean
-          make PP="xcrun --sdk macosx --toolchain iphoneos clang" \
-               CC="xcrun --sdk macosx --toolchain iphoneos clang" \
-               CFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -fembed-bitcode -target x86_64-apple-ios13-macabi " \
-               LFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -fembed-bitcode -target x86_64-apple-ios13-macabi -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
+          make PP=g++ \
+               CC=gcc \
+               CFLAGS="-arch x86_64 -target x86_64-apple-ios-macabi -fembed-bitcode -miphoneos-version-min=13.0" \
+               LFLAGS="-arch x86_64 -target x86_64-apple-ios-macabi -fembed-bitcode -miphoneos-version-min=13.0 -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
@@ -42,9 +42,9 @@ jobs:
           make clean
           make clean
           make PP=g++ \
-               CC="xcrun --sdk iphoneos clang" \
-               CFLAGS="-arch arm64 -mmacosx-version-min=12.0 -fembed-bitcode -target arm64-apple-ios13-macabi" \
-               LFLAGS="-arch arm64 -mmacosx-version-min=12.0 -fembed-bitcode -target arm64-apple-ios13-macabi -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
+               CC=gcc \
+               CFLAGS="-arch arm64 -target arm64-apple-ios-macabi -fembed-bitcode -miphoneos-version-min=13.0" \
+               LFLAGS="-arch arm64 -target arm64-apple-ios-macabi -fembed-bitcode -miphoneos-version-min=13.0 -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_arm64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
