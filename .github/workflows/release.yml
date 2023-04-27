@@ -32,8 +32,8 @@ jobs:
           make clean
           make PP="clang" \
                CC="clang" \
-               CFLAGS=" -Os -mmacosx-version-min=12.0 -arch x86_64 -fembed-bitcode -target x86_64-apple-ios14-macabi" \
-               LFLAGS=" -Os -mmacosx-version-min=12.0 -arch x86_64 -fembed-bitcode -target x86_64-apple-ios14-macabi -Bsymbolic-functions" static
+               CFLAGS=" -Os -mmacosx-version-min=12.0 -arch x86_64 -fembed-bitcode -target x86_64-apple-ios14-macabi -Werror,-Woverriding-t-option" \
+               LFLAGS=" -Os -mmacosx-version-min=12.0 -arch x86_64 -fembed-bitcode -target x86_64-apple-ios14-macabi -Werror,-Woverriding-t-option -Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
