@@ -31,9 +31,9 @@ jobs:
           cd temp
           make clean
           make PP=g++ \
-               CC=gcc \
-               CFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -darwin-target-variant x86_64-apple-ios13.1-macabi" \
-               LFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -darwin-target-variant x86_64-apple-ios13.1-macabi -Wl,-Bsymbolic-functions" static
+               CC="xcrun --sdk iphoneos clang" \
+               CFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -fembed-bitcode -target x86_64-apple-ios13-macabi " \
+               LFLAGS="-arch x86_64 -mmacosx-version-min=12.0 -fembed-bitcode -target x86_64-apple-ios13-macabi -Wl,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
@@ -42,9 +42,9 @@ jobs:
           make clean
           make clean
           make PP=g++ \
-               CC=gcc \
-               CFLAGS="-arch arm64 -mmacosx-version-min=12.0 -darwin-target-variant arm64-apple-ios13.1-macabi" \
-               LFLAGS="-arch arm64 -mmacosx-version-min=12.0 -darwin-target-variant arm64-apple-ios13.1-macabi -Wl,-Bsymbolic-functions" static
+               CC="xcrun --sdk iphoneos clang" \
+               CFLAGS="-arch arm64 -mmacosx-version-min=12.0 -fembed-bitcode -target arm64-apple-ios13-macabi" \
+               LFLAGS="-arch arm64 -mmacosx-version-min=12.0 -fembed-bitcode -target arm64-apple-ios13-macabi -Wl,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_arm64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
