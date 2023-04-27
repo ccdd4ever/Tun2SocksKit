@@ -32,8 +32,8 @@ jobs:
           make clean
           make PP=g++ \
                CC=gcc \
-               CFLAGS="-arch x86_64 -miphoneos-version-min=13.0 -target x86_64-apple-ios-macabi -fembed-bitcode" \
-               LFLAGS="-arch x86_64 -miphoneos-version-min=13.0 -target x86_64-apple-ios-macabi -fembed-bitcode -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
+               CFLAGS="-arch x86_64 -miphoneos-version-min=13.0 -target x86_64-apple-ios13-macabi -fembed-bitcode" \
+               LFLAGS="-arch x86_64 -miphoneos-version-min=13.0 -target x86_64-apple-ios13-macabi -fembed-bitcode -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
@@ -43,8 +43,8 @@ jobs:
           make clean
           make PP=g++ \
                CC=gcc \
-               CFLAGS="-arch arm64 -miphoneos-version-min=13.0 -target arm64-apple-ios-macabi -fembed-bitcode" \
-               LFLAGS="-arch arm64 -miphoneos-version-min=13.0 -target arm64-apple-ios-macabi -fembed-bitcode -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
+               CFLAGS="-arch arm64 -miphoneos-version-min=13.0 -target arm64-apple-ios13-macabi -fembed-bitcode" \
+               LFLAGS="-arch arm64 -miphoneos-version-min=13.0 -target arm64-apple-ios13-macabi -fembed-bitcode -Werror,-Woverriding-t-option,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_arm64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
