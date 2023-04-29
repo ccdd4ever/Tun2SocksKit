@@ -30,20 +30,20 @@ jobs:
           mkdir maccatalyst_arm64_x86_64/maccatalyst_x86_64
           cd temp
           make clean
-          make PP="xcrun --sdk macosx --toolchain macosx clang" \
-               CC="xcrun --sdk macosx --toolchain macosx clang" \
-               CFLAGS="-arch x86_64 -target x86_64-apple-ios14-macabi" \
-               LFLAGS="-arch x86_64 -target x86_64-apple-ios14-macabi -Wl,-Bsymbolic-functions" static
+          make PP=g++ \
+               CC=gcc \
+               CFLAGS="-arch x86_64 -target x86_64-apple-ios14.0-macabi -miphoneos-version-min=14.0" \
+               LFLAGS="-arch x86_64 -target x86_64-apple-ios14.0-macabi -miphoneos-version-min=14.0 -Wl,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
                   third-part/yaml/bin/libyaml.a \
                   third-part/hev-task-system/bin/libhev-task-system.a
           make clean
-          make PP="xcrun --sdk macosx --toolchain macosx clang" \
-               CC="xcrun --sdk macosx --toolchain macosx clang" \
-               CFLAGS="-arch arm64 -target arm64-apple-ios14-macabi" \
-               LFLAGS="-arch arm64 -target arm64-apple-ios14-macabi -Wl,-Bsymbolic-functions" static
+          make PP=g++ \
+               CC=gcc \
+               CFLAGS="-arch arm64 -target arm64-apple-ios14.0-macabi -miphoneos-version-min=14.0" \
+               LFLAGS="-arch arm64 -target arm64-apple-ios14.0-macabi -miphoneos-version-min=14.0 -Wl,-Bsymbolic-functions" static
           libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_arm64/libhev-socks5-tunnel.a \
                   bin/libhev-socks5-tunnel.a \
                   third-part/lwip/bin/liblwip.a \
